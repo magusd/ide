@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  ide:
+    build:
+      context: ./docker/ide
+    ports:
+        - 3500:3500
+        - 3000:3000
+        - 9229:9229
+    volumes:
+        - .:/apps
+        - ./docker/ide/package.json:/home/theia/package.json
+        - $HOME/.ssh/:/root/.ssh
+        - $HOME/.gitconfig:/root/.gitconfig
+    command: yarn theia start /apps --hostname=0.0.0.0 --port=3500
+    # command: bash -c "sleep infinity"
+    
+#trafik
+#kafka
+#py?
+#php?
