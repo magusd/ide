@@ -11,7 +11,8 @@ services:
     volumes:
         - .:/apps
         - ./docker/ide/package.json:/home/theia/package.json
-        - $HOME/.ssh/:/root/.ssh
+        - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa
+        - $HOME/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
         - $HOME/.gitconfig:/root/.gitconfig
     command: yarn theia start /apps --hostname=0.0.0.0 --port=3500
     # command: bash -c "sleep infinity"
